@@ -1,0 +1,23 @@
+Chrome extension to jump from one map to another.
+
+As of version 0.1 only jumping
+
+FROM: Gowalla spots
+
+TO: Wikimapia and Openstreetmap
+
+is implemented. More services and directions are planned.
+
+--------------------------------------------------
+
+To install: 
+
+Download or clone the code with git.
+In Chrome:
+Tools > Extensions > Developer mode > Load unpacked extension > Browse to the src directory.
+
+--------------------------------------------------
+
+Code is derived from Mappy extension from the samples:
+http://code.google.com/chrome/extensions/samples.html
+http://src.chromium.org/viewvc/chrome/trunk/src/chrome/common/extensions/docs/examples/extensions/mappy/

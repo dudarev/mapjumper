@@ -1,0 +1,30 @@
+<head>
+<style>
+body {
+  margin: 0px;
+  padding: 0px;
+}
+</style>
+
+<script>
+function generate_links() {
+  var coordinates = chrome.extension.getBackgroundPage().selectedCoordinates;
+  if (coordinates){
+      var link_wikimapia='<a href="http://wikimapia.org/#lat=LAT&lon=LON&z=16&l=0&m=b" target="_blank">Wikimapia</a>';
+      var link_osm='<a href="http://www.openstreetmap.org/?lon=LON&lat=LAT&zoom=16&mlat=LAT&mlon=LON" target="_blank">OpenStreetMap</a>';
+      link_wikimapia = link_wikimapia.replace('LAT',coordinates['lat']);
+      link_wikimapia = link_wikimapia.replace('LON',coordinates['lon']);
+      link_osm = link_osm.replace(/LAT/g,coordinates['lat']);
+      link_osm = link_osm.replace(/LON/g,coordinates['lon']);
+      document.writeln(link_wikimapia);
+      document.writeln('<br/>');
+      document.writeln(link_osm);
+  }
+};
+</script>
+
+
+</head>
+<body onload="generate_links();">
+</body>
+

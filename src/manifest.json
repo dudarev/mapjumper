@@ -1,0 +1,17 @@
+{
+  "name": "Map Jumper",
+  "version": "0.1",
+  "description": "Jump to maps of this location from various services.",
+  "background_page": "background.html",
+  "page_action": {
+    "default_icon": "icon.png",
+    "popup": "popup.html"
+  },
+  "content_scripts": [
+    { "matches": ["http://gowalla.com/*"], "js": ["mapjumper_script.js"] }
+  ],
+  "permissions": [
+    "tabs",
+    "http://maps.google.com/*"
+  ]
+}
