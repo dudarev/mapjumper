@@ -10,15 +10,25 @@ body {
 function generate_links() {
   var coordinates = chrome.extension.getBackgroundPage().selectedCoordinates;
   if (coordinates){
-      var link_wikimapia='<a href="http://wikimapia.org/#lat=LAT&lon=LON&z=16&l=0&m=b" target="_blank">Wikimapia</a>';
-      var link_osm='<a href="http://www.openstreetmap.org/?lon=LON&lat=LAT&zoom=16&mlat=LAT&mlon=LON" target="_blank">OpenStreetMap</a>';
+      var link_wikimapia = '<a href="http://wikimapia.org/#lat=LAT&lon=LON&z=16&l=0&m=b" target="_blank">Wikimapia</a>';
+      var link_osm = '<a href="http://www.openstreetmap.org/?lon=LON&lat=LAT&zoom=16&mlat=LAT&mlon=LON" target="_blank">OpenStreetMap</a>';
+      var link_google ='<a href="http://maps.google.com/?ie=UTF8&ll=LAT,LON&z=16" target="_blank">Google Maps</a>';
+      var link_mapquest = '<a href="http://open.mapquest.com/?center=LAT,LON&zoom=16" target="_blank">MapQuest Open</a>';
       link_wikimapia = link_wikimapia.replace('LAT',coordinates['lat']);
       link_wikimapia = link_wikimapia.replace('LON',coordinates['lon']);
       link_osm = link_osm.replace(/LAT/g,coordinates['lat']);
       link_osm = link_osm.replace(/LON/g,coordinates['lon']);
+      link_google = link_google.replace(/LAT/g,coordinates['lat']);
+      link_google = link_google.replace(/LON/g,coordinates['lon']);
+      link_mapquest = link_mapquest.replace(/LAT/g,coordinates['lat']);
+      link_mapquest = link_mapquest.replace(/LON/g,coordinates['lon']);
       document.writeln(link_wikimapia);
       document.writeln('<br/>');
       document.writeln(link_osm);
+      document.writeln('<br/>');
+      document.writeln(link_google);
+      document.writeln('<br/>');
+      document.writeln(link_mapquest);
   }
 };
 </script>
