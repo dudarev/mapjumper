@@ -8,10 +8,19 @@
     "popup": "popup.html"
   },
   "content_scripts": [
-    { "matches": ["http://gowalla.com/*"], "js": ["mapjumper_script.js"] }
+    { 
+        "matches": [
+            "http://gowalla.com/*",
+            "http://maps.google.com/*",
+            "http://maps.google.ru/*",
+            "http://maps.google.com.ua/*"
+        ],
+        "js": [
+            "mapjumper_script.js"
+        ]
+    }
   ],
   "permissions": [
-    "tabs",
-    "http://maps.google.com/*"
+    "tabs"
   ]
 }

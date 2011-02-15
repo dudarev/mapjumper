@@ -1,42 +1,25 @@
 <script>
-// Global accessor that the popup uses.
-var coordinates_dict = {};
-var selectedCoordinates = null;
-var selectedId = null;
 
-function updateCoordinates(tabId) {
+function initialize(tabId) {
   chrome.tabs.sendRequest(tabId, {}, function(coordinates_pair) {
-    coordinates_dict[tabId] = coordinates_pair;
     if (!coordinates_pair) {
       chrome.pageAction.hide(tabId);
     } else {
       chrome.pageAction.show(tabId);
-      if (selectedId == tabId) {
-        updateSelected(tabId);
-      }
     }
   });
 }
 
-function updateSelected(tabId) {
-  selectedCoordinates = coordinates_dict[tabId];
-  if (selectedCoordinates)
-    chrome.pageAction.setTitle({tabId:tabId, title:selectedCoordinates});
-}
+// Ensure the current selected tab is set up.
 
 chrome.tabs.onUpdated.addListener(function(tabId, change, tab) {
   if (change.status == "complete") {
-    updateCoordinates(tabId);
+    initialize(tabId);
   }
 });
 
-chrome.tabs.onSelectionChanged.addListener(function(tabId, info) {
-  selectedId = tabId;
-  updateSelected(tabId);
+chrome.tabs.getSelected(null, function(tab) {
+  initialize(tab.id);
 });
 
-// Ensure the current selected tab is set up.
-chrome.tabs.getSelected(null, function(tab) {
-  updateCoordinates(tab.id);
-});
 </script>
