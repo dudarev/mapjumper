@@ -39,9 +39,10 @@ var findCoordinates= function() {
           zoom = parseInt(link.match(/z=(\d*)/)[1]);
           break;
   }
-  if(lat && lon)
+  if(!(lat==null) && !(lon==null)){
       console.log({"lat":lat, "lon":lon, "zoom":zoom});
       return {"lat":lat, "lon":lon, "zoom":zoom};
+  };
   console.log("no place detected");
   return null;
 }

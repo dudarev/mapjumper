@@ -13,7 +13,10 @@ function generate_links() {
   chrome.tabs.getSelected(null, function(tab) {
       chrome.tabs.sendRequest(tab.id, {}, function(coordinates_pair) {
           coordinates = coordinates_pair;
-          if (coordinates){
+          if (coordinates == null){
+              document.writeln('no coordinates detected, browse around');
+          }
+          if (!(coordinates==null)){
               if (coordinates['zoom'])
                 var zoom = coordinates['zoom'];
               else
