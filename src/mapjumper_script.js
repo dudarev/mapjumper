@@ -13,8 +13,11 @@ var findCoordinates= function() {
   var hostname = window.location.hostname;
   if (hostname.match(/maps.google/))
       hostname = 'maps.google.com';
+  if (hostname.match(/openstreetmap.org/))
+      hostname = 'openstreetmap.org';
   switch(hostname){
       case "gowalla.com":
+          console.log("gowalla.com");
           for (var i = 0; i < node.childNodes.length; ++i) {
             var child = node.childNodes[i];
             if(child.nodeName){
@@ -37,6 +40,19 @@ var findCoordinates= function() {
           lat = parseFloat(latlon[1]);
           lon = parseFloat(latlon[2]);
           zoom = parseInt(link.match(/z=(\d*)/)[1]);
+          break;
+      case "openstreetmap.org":
+          console.log("openstreetmap.org");
+          var link = document.getElementById("permalinkanchor");
+          link = link.getAttribute('href');
+          latlon = link.match(/lat=([\d.-]+)&lon=([\d.-]+)/);
+          if (!latlon)
+              break
+          console.log(link);
+          console.log(latlon);
+          lat = parseFloat(latlon[1]);
+          lon = parseFloat(latlon[2]);
+          zoom = parseInt(link.match(/zoom=(\d*)/)[1]);
           break;
   }
   if(!(lat==null) && !(lon==null)){

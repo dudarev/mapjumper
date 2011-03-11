@@ -13,7 +13,9 @@
             "http://gowalla.com/*",
             "http://maps.google.com/*",
             "http://maps.google.ru/*",
-            "http://maps.google.com.ua/*"
+            "http://maps.google.com.ua/*",
+            "http://openstreetmap.org/*",
+            "http://www.openstreetmap.org/*"
         ],
         "js": [
             "mapjumper_script.js"
