@@ -10,6 +10,7 @@ var findCoordinates= function() {
   var lat = null;
   var lon = null;
   var zoom = null;
+  var default_zoom = 16;
   var hostname = window.location.hostname;
   if (hostname.match(/maps.google/))
       hostname = 'maps.google.com';
@@ -53,6 +54,33 @@ var findCoordinates= function() {
           lat = parseFloat(latlon[1]);
           lon = parseFloat(latlon[2]);
           zoom = parseInt(link.match(/zoom=(\d*)/)[1]);
+          break;
+      case "picasaweb.google.com":
+          console.log("picasa");
+          var t = document.getElementsByClassName("lhcl_advancedExifFields");
+          var trs = t[0].getElementsByTagName("tr");
+          for (var i = 0; i < trs.length; ++i) {
+              var th = trs[i].getElementsByTagName("th");
+              if(th[0].innerHTML.match('Latitude')){
+                  var td = trs[i].getElementsByTagName("td");
+                  var n = td[0].innerHTML.match(/[\d.-]+/);
+                  lat = parseFloat(n[0]);
+                  var sign = td[0].innerHTML.match(/[NS]/);
+                  if (sign[0] == 'S'){
+                      lat = -lat;
+                  }
+              }
+              if(th[0].innerHTML.match('Longitude')){
+                  var td = trs[i].getElementsByTagName("td");
+                  n = td[0].innerHTML.match(/[\d.-]+/);
+                  lon = parseFloat(n[0]);
+                  var sign = td[0].innerHTML.match(/[WE]/);
+                  if (sign[0] == 'W'){
+                      lon = -lon;
+                  }
+              }
+              zoom = default_zoom;
+          };
           break;
   }
   if(!(lat==null) && !(lon==null)){

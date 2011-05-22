@@ -11,6 +11,8 @@
     { 
         "matches": [
             "http://gowalla.com/*",
+            "https://picasaweb.google.com/*",
+            "http://picasaweb.google.com/*",
             "http://maps.google.com/*",
             "http://maps.google.ru/*",
             "http://maps.google.com.ua/*",
