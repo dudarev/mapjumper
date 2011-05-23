@@ -36,7 +36,7 @@ function generate_links() {
               link_google = link_google.replace('ZOOM',zoom);
               link_mapquest = link_mapquest.replace(/LAT/g,coordinates['lat']);
               link_mapquest = link_mapquest.replace(/LON/g,coordinates['lon']);
-              link_mapquest = link_mapquest.replace('ZOOM',zoom-2);
+              link_mapquest = link_mapquest.replace('ZOOM',zoom);
               document.writeln(link_wikimapia);
               document.writeln('<br/>');
               document.writeln(link_osm);

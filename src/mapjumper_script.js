@@ -10,7 +10,7 @@ var findCoordinates= function() {
   var lat = null;
   var lon = null;
   var zoom = null;
-  var default_zoom = 16;
+  var zoom_default = 16;
   var hostname = window.location.hostname;
   if (hostname.match(/maps.google/))
       hostname = 'maps.google.com';
@@ -79,7 +79,7 @@ var findCoordinates= function() {
                       lon = -lon;
                   }
               }
-              zoom = default_zoom;
+              zoom = zoom_default;
           };
           break;
   }
