@@ -16,9 +16,11 @@ var findCoordinates= function() {
       hostname = 'maps.google.com';
   if (hostname.match(/openstreetmap.org/))
       hostname = 'openstreetmap.org';
+  if (hostname.match(/(gowalla|foursquare)/))
+      hostname = 'gowalla_or_4sq';
   switch(hostname){
-      case "gowalla.com":
-          console.log("gowalla.com");
+      case "gowalla_or_4sq":
+          console.log("gowalla_or_4sq");
           for (var i = 0; i < node.childNodes.length; ++i) {
             var child = node.childNodes[i];
             if(child.nodeName){
@@ -36,8 +38,6 @@ var findCoordinates= function() {
           latlon = link.match(/[^s]ll=([\d.-]+),([\d.-]+)/);
           if (!latlon)
               break
-          console.log(link);
-          console.log(latlon);
           lat = parseFloat(latlon[1]);
           lon = parseFloat(latlon[2]);
           zoom = parseInt(link.match(/z=(\d*)/)[1]);
@@ -49,8 +49,6 @@ var findCoordinates= function() {
           latlon = link.match(/lat=([\d.-]+)&lon=([\d.-]+)/);
           if (!latlon)
               break
-          console.log(link);
-          console.log(latlon);
           lat = parseFloat(latlon[1]);
           lon = parseFloat(latlon[2]);
           zoom = parseInt(link.match(/zoom=(\d*)/)[1]);
@@ -84,7 +82,6 @@ var findCoordinates= function() {
           break;
   }
   if(!(lat==null) && !(lon==null)){
-      console.log({"lat":lat, "lon":lon, "zoom":zoom});
       return {"lat":lat, "lon":lon, "zoom":zoom};
   };
   console.log("no place detected");
