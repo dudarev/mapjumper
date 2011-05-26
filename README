@@ -1,18 +1,23 @@
 Chrome extension to jump from one map to another.
 
-As of version 0.1 only jumping
+As of version 0.2 jumps
 
-FROM: Gowalla spots
+FROM: Gowalla, Foursquare, OpenStreetMap, Google Picasa, Google Maps
 
-TO: Wikimapia and Openstreetmap
+TO: Google Maps, OpenStreetMap, Wikimapia, MapQuest Open.
 
-is implemented. More services and directions are planned.
+More services and directions are planned.
 
 --------------------------------------------------
 
-To install: 
+Install directly from Chrome Web Store:
 
-Download or clone the code with git.
+https://chrome.google.com/webstore/detail/idadajmpblcbihmilgecfdmjhomcmicd
+
+OR
+
+Download or clone code from Github.
+
 In Chrome:
 Tools > Extensions > Developer mode > Load unpacked extension > Browse to the src directory.
 
