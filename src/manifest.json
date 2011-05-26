@@ -1,7 +1,7 @@
 {
   "name": "Map Jumper",
-  "version": "0.1",
-  "description": "Jump to maps of this location from various services.",
+  "version": "0.2",
+  "description": "Jump to maps of a location from various online map services.",
   "background_page": "background.html",
   "page_action": {
     "default_icon": "icon.png",
