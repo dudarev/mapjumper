@@ -13,10 +13,9 @@ function generate_links() {
   chrome.tabs.getSelected(null, function(tab) {
       chrome.tabs.sendRequest(tab.id, {}, function(coordinates_pair) {
           coordinates = coordinates_pair;
-          if (coordinates == null){
-              document.writeln('no coordinates detected, browse around');
-          }
-          if (!(coordinates==null)){
+          if (coordinates['found'] == false){
+              document.writeln('no coordinates detected, drag the map around, click again');
+          } else {
               if (coordinates['zoom'])
                 var zoom = coordinates['zoom'];
               else

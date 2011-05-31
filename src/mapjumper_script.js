@@ -85,6 +85,6 @@ var findCoordinates= function() {
       return {"lat":lat, "lon":lon, "zoom":zoom};
   };
   console.log("no place detected");
-  return null;
+  return {"found": false};
 }
 
