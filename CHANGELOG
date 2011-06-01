@@ -1,0 +1,10 @@
+0.3
+
+- Jumps from Wikimapia.
+- Messages if coordinates are not found, but in principle it's possible to jump from some pages.
+- Size and styling of the popup window.
+
+0.2
+ 
+- Jumps from Foursquare places.
+- Extended README and about at gh-pages.
