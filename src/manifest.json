@@ -19,7 +19,8 @@
             "http://maps.google.ru/*",
             "http://maps.google.com.ua/*",
             "http://openstreetmap.org/*",
-            "http://www.openstreetmap.org/*"
+            "http://www.openstreetmap.org/*",
+            "http://wikimapia.org/*"
         ],
         "js": [
             "mapjumper_script.js"

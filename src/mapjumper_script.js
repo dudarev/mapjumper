@@ -18,6 +18,8 @@ var findCoordinates= function() {
       hostname = 'openstreetmap.org';
   if (hostname.match(/(gowalla|foursquare)/))
       hostname = 'gowalla_or_4sq';
+  if (hostname.match(/wikimapia/))
+      hostname = 'wikimapia';
   switch(hostname){
       case "gowalla_or_4sq":
           console.log("gowalla_or_4sq");
@@ -80,6 +82,19 @@ var findCoordinates= function() {
               zoom = zoom_default;
           };
           break;
+      case "wikimapia":
+          console.log("wikimapia");
+          var hash = window.location.hash;
+          if(hash){
+              console.log(hash);
+              latlonz = hash.match(/lat=([\d.-]+)&lon=([\d.-]+)&z=([\d]+)/);
+              if (!latlonz) break;
+              lat = parseFloat(latlonz[1]);
+              lon = parseFloat(latlonz[2]);
+              z = parseFloat(latlonz[3]);
+          }
+          break;
+
   }
   if(!(lat==null) && !(lon==null)){
       return {"lat":lat, "lon":lon, "zoom":zoom};
