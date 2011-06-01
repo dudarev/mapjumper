@@ -1,8 +1,8 @@
 Chrome extension to jump from one map to another.
 
-As of version 0.2 jumps
+As of version 0.3 jumps
 
-FROM: Gowalla, Foursquare, OpenStreetMap, Google Picasa, Google Maps
+FROM: Gowalla, Foursquare, OpenStreetMap, Google Picasa, Google Maps, Wikimapia
 
 TO: Google Maps, OpenStreetMap, Wikimapia, MapQuest Open.
 
