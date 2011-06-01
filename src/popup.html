@@ -1,8 +1,15 @@
 <head>
 <style>
 body {
-  margin: 0px;
   padding: 0px;
+  margin: 1px;
+  min-width: 200px;
+  overflow: hidden;
+  background-image: -webkit-gradient(radial, 50% 10%, 10, 50% 10%, 400, from(#f1f8eb), to(#FFF));
+}
+
+#container {
+    text-align:right;
 }
 </style>
 
@@ -36,13 +43,7 @@ function generate_links() {
               link_mapquest = link_mapquest.replace(/LAT/g,coordinates['lat']);
               link_mapquest = link_mapquest.replace(/LON/g,coordinates['lon']);
               link_mapquest = link_mapquest.replace('ZOOM',zoom);
-              document.writeln(link_wikimapia);
-              document.writeln('<br/>');
-              document.writeln(link_osm);
-              document.writeln('<br/>');
-              document.writeln(link_google);
-              document.writeln('<br/>');
-              document.writeln(link_mapquest);
+              document.getElementById('container').innerHTML = link_wikimapia + "<br/>" + link_osm + "<br/>" + link_google + "<br/>" + link_mapquest;
           }
       });
   });
@@ -52,5 +53,6 @@ function generate_links() {
 
 </head>
 <body onload="generate_links();">
+    <div id="container"></div>
 </body>
 
