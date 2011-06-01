@@ -85,6 +85,23 @@ var findCoordinates= function() {
       return {"lat":lat, "lon":lon, "zoom":zoom};
   };
   console.log("no place detected");
-  return {"found": false};
+  var not_found_message;
+  switch(hostname){
+      case "gowalla_or_4sq":
+          not_found_message = "browse to a place page";
+          break;
+      case "maps.google.com":
+          not_found_message = "no coordinates detected, drag the map around, click again";
+          break;
+      case "openstreetmap.org":
+          not_found_message = "no coordinates detected";
+          break;
+      case "picasaweb.google.com":
+          not_found_message = "browse to full details page";
+          break;
+      default:
+          not_found_message = "no coordinates detected";
+  }
+  return {"found": false, "message": not_found_message};
 }
 
