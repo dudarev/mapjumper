@@ -31,6 +31,7 @@ function generate_links() {
               var link_osm = '<a href="http://www.openstreetmap.org/?lon=LON&lat=LAT&zoom=ZOOM&mlat=LAT&mlon=LON" target="_blank">OpenStreetMap</a>';
               var link_google ='<a href="http://maps.google.com/?ie=UTF8&ll=LAT,LON&z=ZOOM" target="_blank">Google Maps</a>';
               var link_mapquest = '<a href="http://open.mapquest.com/?center=LAT,LON&zoom=ZOOM" target="_blank">MapQuest Open</a>';
+              var link_yandex = '<a href="http://maps.yandex.ru/?ll=LON%2CLAT&z=ZOOM" target="_blank">Yandex Maps</a>';
               link_wikimapia = link_wikimapia.replace('LAT',coordinates['lat']);
               link_wikimapia = link_wikimapia.replace('LON',coordinates['lon']);
               link_wikimapia = link_wikimapia.replace('ZOOM',zoom);
@@ -43,7 +44,10 @@ function generate_links() {
               link_mapquest = link_mapquest.replace(/LAT/g,coordinates['lat']);
               link_mapquest = link_mapquest.replace(/LON/g,coordinates['lon']);
               link_mapquest = link_mapquest.replace('ZOOM',zoom);
-              document.getElementById('container').innerHTML = link_wikimapia + "<br/>" + link_osm + "<br/>" + link_google + "<br/>" + link_mapquest;
+              link_yandex = link_yandex.replace(/LAT/g,coordinates['lat']);
+              link_yandex = link_yandex.replace(/LON/g,coordinates['lon']);
+              link_yandex = link_yandex.replace('ZOOM',zoom);
+              document.getElementById('container').innerHTML = link_wikimapia + "<br/>" + link_osm + "<br/>" + link_google + "<br/>" + link_mapquest + "<br/>" + link_yandex;
           }
       });
   });
