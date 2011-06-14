@@ -21,7 +21,7 @@ function generate_links() {
       chrome.tabs.sendRequest(tab.id, {}, function(coordinates_pair) {
           coordinates = coordinates_pair;
           if (coordinates['found'] == false){
-              document.getElementById('container').innerHTML = coordinates['message'];
+              document.writeln(coordinates['message']);
           } else {
               if (coordinates['zoom'])
                 var zoom = coordinates['zoom'];
