@@ -11,6 +11,7 @@
     { 
         "matches": [
             "http://gowalla.com/*",
+            "https://gowalla.com/*",
             "http://foursquare.com/*",
             "https://foursquare.com/*",
             "https://picasaweb.google.com/*",
