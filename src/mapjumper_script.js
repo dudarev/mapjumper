@@ -20,6 +20,8 @@ var findCoordinates= function() {
       hostname = 'gowalla_or_4sq';
   if (hostname.match(/wikimapia/))
       hostname = 'wikimapia';
+  if (hostname.match(/www.bing.com/))
+      hostname = 'bing';
   switch(hostname){
       case "gowalla_or_4sq":
           console.log("gowalla_or_4sq");
@@ -54,6 +56,17 @@ var findCoordinates= function() {
           lat = parseFloat(latlon[1]);
           lon = parseFloat(latlon[2]);
           zoom = parseInt(link.match(/zoom=(\d*)/)[1]);
+          break;
+      case "bing":
+          console.log("bing");
+          var link = document.getElementById("MapControl_MapControl");
+          link = link.getAttribute('value');
+          latlon = link.match(/'C':{'Latitude':([\d.-]+),'Longitude':([\d.-]+)/);
+          if (!latlon)
+              break
+          lat = parseFloat(latlon[1]);
+          lon = parseFloat(latlon[2]);
+          zoom = parseInt(link.match(/'Z':(\d*)/)[1]);
           break;
       case "picasaweb.google.com":
           console.log("picasa");
