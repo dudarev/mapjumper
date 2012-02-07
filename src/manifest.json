@@ -1,6 +1,6 @@
 {
   "name": "Map Jumper",
-  "version": "0.4",
+  "version": "0.4.1",
   "description": "Jump to maps of a location from various online map services.",
   "background_page": "background.html",
   "page_action": {
