@@ -1,3 +1,17 @@
+0.4.1
+
+Stephen Todd added:
+
+- support for Google Maps UK
+- jump to and from Bing Maps
+
+0.4
+
+- added link to Yandex Maps
+- error message is styled
+- added jumping to osmbugs
+- added https to gowalla, for gowalla 4.0 to work
+
 0.3
 
 - Jumps from Wikimapia.
