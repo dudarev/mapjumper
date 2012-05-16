@@ -10,19 +10,16 @@
   "content_scripts": [
     { 
         "matches": [
-            "http://gowalla.com/*",
-            "https://gowalla.com/*",
-            "http://foursquare.com/*",
-            "https://foursquare.com/*",
-            "https://picasaweb.google.com/*",
-            "http://picasaweb.google.com/*",
-            "http://maps.google.com/*",
-            "http://maps.google.ru/*",
-            "http://maps.google.com.ua/*",
-            "http://maps.google.co.uk/*",
+            "*://gowalla.com/*",
+            "*://foursquare.com/*",
+            "*://picasaweb.google.com/*",
+            "*://maps.google.com/*",
+            "*://maps.google.ru/*",
+            "*://maps.google.com.ua/*",
+            "*://maps.google.co.uk/*",
             "http://openstreetmap.org/*",
             "http://www.openstreetmap.org/*",
-            "http://www.bing.com/maps/*",
+            "*://www.bing.com/maps/*",
             "http://wikimapia.org/*"
         ],
         "js": [
