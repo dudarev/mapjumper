@@ -1,3 +1,8 @@
+0.4.3
+
+- removed Gowalla
+- fixed jumping from Foursquare place pages
+
 0.4.2
 
 - changed URLs to the form "*://maps.google.com/*", so that both http and https are supported
