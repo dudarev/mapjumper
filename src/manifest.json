@@ -1,6 +1,6 @@
 {
   "name": "Map Jumper",
-  "version": "0.4.1",
+  "version": "0.4.3",
   "description": "Jump to maps of a location from various online map services.",
   "background_page": "background.html",
   "page_action": {
@@ -10,7 +10,6 @@
   "content_scripts": [
     { 
         "matches": [
-            "*://gowalla.com/*",
             "*://foursquare.com/*",
             "*://picasaweb.google.com/*",
             "*://maps.google.com/*",
