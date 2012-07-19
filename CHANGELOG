@@ -1,3 +1,7 @@
+0.4.2
+
+- changed URLs to the form "*://maps.google.com/*", so that both http and https are supported
+
 0.4.1
 
 Stephen Todd added:
@@ -14,11 +18,11 @@ Stephen Todd added:
 
 0.3
 
-- Jumps from Wikimapia.
-- Messages if coordinates are not found, but in principle it's possible to jump from some pages.
-- Size and styling of the popup window.
+- Jumps from Wikimapia
+- Messages if coordinates are not found, but in principle it's possible to jump from some pages
+- Size and styling of the popup window
 
 0.2
  
-- Jumps from Foursquare places.
-- Extended README and about at gh-pages.
+- Jumps from Foursquare places
+- Extended README and about at gh-pages
