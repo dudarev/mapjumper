@@ -1,14 +1,31 @@
+# Mapjumper
+
 Chrome extension to jump from one map to another.
 
-As of version 0.3 jumps
+As of version 0.5.0 jumps
 
-FROM: Gowalla, Foursquare, OpenStreetMap, Google Picasa, Google Maps, Wikimapia
+**FROM**: 
 
-TO: Google Maps, OpenStreetMap, Wikimapia, MapQuest Open.
+  * Bing
+  * Foursquare
+  * Google Maps (old style for now)
+  * OpenStreetMap
+  * Wikimapia
+
+**TO**: 
+
+  * Bing Maps
+  * Google Maps
+  * MapQuest Open
+  * OpenStreetMap
+  * OpenStreetBugs
+  * Wikimapia
+  * Yandex Maps
 
 More services and directions are planned.
 
---------------------------------------------------
+
+## Installation
 
 Install directly from Chrome Web Store:
 
@@ -21,7 +38,8 @@ Download or clone code from Github.
 In Chrome:
 Tools > Extensions > Developer mode > Load unpacked extension > Browse to the src directory.
 
---------------------------------------------------
+
+## Code by others used
 
 Code is derived from Mappy extension from the samples:
 http://code.google.com/chrome/extensions/samples.html

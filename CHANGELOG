@@ -1,3 +1,11 @@
+0.5.0
+
+- fixed jumping from new style OpenStreetMap
+- new large icon
+- manifest version 2
+- removed Picasa Web
+- styling with JSHint
+
 0.4.3
 
 - removed Gowalla

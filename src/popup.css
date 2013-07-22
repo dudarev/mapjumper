@@ -1,0 +1,9 @@
+body {
+    margin: 0px;
+    padding: 10px;
+    min-width: 150px;
+}
+
+#container {
+    text-align: right;
+}

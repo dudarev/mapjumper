@@ -1,17 +1,15 @@
 {
-  "name": "Map Jumper",
-  "version": "0.4.3",
-  "description": "Jump to maps of a location from various online map services.",
-  "background_page": "background.html",
-  "page_action": {
-    "default_icon": "icon.png",
-    "popup": "popup.html"
-  },
-  "content_scripts": [
-    { 
+    "name": "Map Jumper",
+    "version": "0.5.0",
+    "description": "Jump to maps of a location from various online map services.",
+    "icons": {
+        "512": "mapjumper_icon_512.png",
+        "64": "mapjumper_icon_64.png"
+    },
+    "background": { "scripts": ["background.js"] },
+    "content_scripts": [{ 
         "matches": [
             "*://foursquare.com/*",
-            "*://picasaweb.google.com/*",
             "*://maps.google.com/*",
             "*://maps.google.ru/*",
             "*://maps.google.com.ua/*",
@@ -22,11 +20,17 @@
             "http://wikimapia.org/*"
         ],
         "js": [
-            "mapjumper_script.js"
+            "mapjumper_content_script.js"
         ]
-    }
-  ],
-  "permissions": [
-    "tabs"
-  ]
+    }],
+    "permissions": [
+        "tabs"
+    ],
+    "page_action": {
+        "default_name": "Jump to Other Maps!",
+        "default_icon": "mapjumper_icon_64.png",
+        "default_popup": "popup.html"
+    },
+    "manifest_version": 2,
+    "content_security_policy": "default-src 'none'; style-src 'self'; script-src 'self';"
 }
