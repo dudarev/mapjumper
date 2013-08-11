@@ -50,16 +50,14 @@ var findCoordinates= function() {
             zoom = parseInt(gmap_link.match(/z=(\d*)/)[1], 10);
             break;
         case "openstreetmap.org":
-            console.log("openstreetmap.org");
-            var div = document.getElementsByClassName("share-link")[0];
-            var osm_share_links = div.getElementsByTagName("a");
-            var osm_link = osm_share_links[0].getAttribute('href');
-            latlon = osm_link.match(/lat=([\d.-]+)&lon=([\d.-]+)/);
-            if (!latlon)
-                break;
-            lat = parseFloat(latlon[1]);
-            lon = parseFloat(latlon[2]);
-            zoom = parseInt(osm_link.match(/zoom=(\d*)/)[1], 10);
+            var hash = window.location.hash;
+            if(hash){
+                zlatlon = hash.match(/map=([\d]+)\/([\d.-]+)\/([\d.-]+)/);
+                if (!zlatlon) break;
+                zoom = parseFloat(zlatlon[1]);
+                lat = parseFloat(zlatlon[2]);
+                lon = parseFloat(zlatlon[3]);
+            }
             break;
         case "bing":
             console.log("bing");
@@ -81,7 +79,7 @@ var findCoordinates= function() {
                 if (!latlonz) break;
                 lat = parseFloat(latlonz[1]);
                 lon = parseFloat(latlonz[2]);
-                z = parseFloat(latlonz[3]);
+                zoom = parseFloat(latlonz[3]);
             }
             break;
     }
