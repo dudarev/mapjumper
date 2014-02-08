@@ -10,6 +10,10 @@
     "content_scripts": [{ 
         "matches": [
             "*://foursquare.com/*",
+            "*://www.google.com/maps/*",
+            "*://www.google.co.uk/maps/*",
+            "*://www.google.ru/maps/*",
+            "*://www.google.com.ua/maps/*",
             "*://maps.google.com/*",
             "*://maps.google.ru/*",
             "*://maps.google.com.ua/*",

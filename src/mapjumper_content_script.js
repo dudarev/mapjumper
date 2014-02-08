@@ -17,6 +17,8 @@ var findCoordinates= function() {
     var hostname = window.location.hostname;
     if (hostname.match(/maps.google/))
         hostname = 'maps.google.com';
+    if (hostname.match(/www.google/))
+        hostname = 'www.google.com';
     if (hostname.match(/openstreetmap.org/))
         hostname = 'openstreetmap.org';
     if (hostname.match(/foursquare/))
@@ -48,6 +50,16 @@ var findCoordinates= function() {
             lat = parseFloat(latlon[1]);
             lon = parseFloat(latlon[2]);
             zoom = parseInt(gmap_link.match(/z=(\d*)/)[1], 10);
+            break;
+        case "www.google.com":
+            console.log("www.google.com");
+            var pathname = window.location.pathname;
+            if (pathname){
+                latlonz = pathname.match(/@([\d.-]+),([\d.-]+),([\d]+)z/);
+                lat = parseFloat(latlonz[1]);
+                lon = parseFloat(latlonz[2]);
+                zoom = parseFloat(latlonz[3]);
+            }
             break;
         case "openstreetmap.org":
             var hash = window.location.hash;
