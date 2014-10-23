@@ -27,6 +27,8 @@ var findCoordinates= function() {
         hostname = 'wikimapia';
     if (hostname.match(/www.bing.com/))
         hostname = 'bing';
+    if (hostname.match(/maps.yandex/))
+        hostname = 'maps.yandex.ru';
     switch(hostname){
         case "foursquare":
             console.log("foursquare");
@@ -94,6 +96,15 @@ var findCoordinates= function() {
                 zoom = parseFloat(latlonz[3]);
             }
             break;
+        case "maps.yandex.ru":
+            console.log("yandex");
+            var link = window.location.href,
+                regexp = /&ll=(\d+.\d+)(?:%2C|\s+)(\d+.\d+)(?:&spn=\d+.\d+)(?:%2C|\s+)(?:\d+.\d+&)z=(\d+)/g;
+                lonlatz = regexp.exec(link);
+            lon = parseFloat(lonlatz[1], 10);
+            lat = parseFloat(lonlatz[2], 10);
+            zoom = parseFloat(lonlatz[3], 10);
+            break;
     }
     if(!(lat === null) && !(lon === null)){
         return {"lat":lat, "lon":lon, "zoom":zoom};
@@ -108,6 +119,9 @@ var findCoordinates= function() {
             not_found_message = "no coordinates detected, drag the map around, click again";
             break;
         case "openstreetmap.org":
+            not_found_message = "no coordinates detected";
+            break;
+        case "maps.yandex.ru":
             not_found_message = "no coordinates detected";
             break;
         default:
