@@ -7,7 +7,7 @@
         "64": "mapjumper_icon_64.png"
     },
     "background": { "scripts": ["background.js"] },
-    "content_scripts": [{ 
+    "content_scripts": [{
         "matches": [
             "*://foursquare.com/*",
             "*://www.google.com/maps/*",
@@ -21,7 +21,9 @@
             "http://openstreetmap.org/*",
             "http://www.openstreetmap.org/*",
             "*://www.bing.com/maps/*",
-            "http://wikimapia.org/*"
+            "http://wikimapia.org/*",
+            "*://maps.yandex.ru/*",
+            "*://maps.yandex.ua/*"
         ],
         "js": [
             "mapjumper_content_script.js"
