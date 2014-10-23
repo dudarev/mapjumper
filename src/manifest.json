@@ -23,7 +23,9 @@
             "*://www.bing.com/maps/*",
             "http://wikimapia.org/*",
             "*://maps.yandex.ru/*",
-            "*://maps.yandex.ua/*"
+            "*://maps.yandex.ua/*",
+            "*://maps.yandex.com/*",
+            "*://harita.yandex.com/*"
         ],
         "js": [
             "mapjumper_content_script.js"
