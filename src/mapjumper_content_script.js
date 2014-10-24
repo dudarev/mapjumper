@@ -80,9 +80,9 @@ var findCoordinates= function() {
             latlon = link.match(/'C':{'Latitude':([\d.-]+),'Longitude':([\d.-]+)/);
             if (!latlon)
                 break;
-            lat = parseFloat(latlon[1]);
-            lon = parseFloat(latlon[2]);
-            zoom = parseInt(link.match(/'Z':(\d*)/)[1], 10);
+            var lat = parseFloat(latlon[1]);
+            var lon = parseFloat(latlon[2]);
+            var zoom = parseInt(link.match(/'Z':(\d+)/)[1], 10);
             break;
         case "wikimapia":
             console.log("wikimapia");
@@ -99,12 +99,12 @@ var findCoordinates= function() {
         case "maps.yandex.ru":
             console.log("yandex");
             var link = window.location.href;
-            var lonlatz = link.match(/ll=([\d.-]+)(%2C|,)([\d.-]+).*z=([\d.]+)/);
-            if (!lonlatz)
+            var lonlat = link.match(/ll=([\d.-]+)(?:%2C|,)([\d.-]+)/);
+            if (!lonlat)
                 break;
-            lon = parseFloat(lonlatz[1], 10);
-            lat = parseFloat(lonlatz[3], 10);
-            zoom = parseFloat(lonlatz[4], 10);
+            var lon = parseFloat(lonlat[1], 10);
+            var lat = parseFloat(lonlat[2], 10);
+            var zoom = parseInt(link.match(/z=(\d+)/)[1], 10);
             break;
     }
     if(!(lat === null) && !(lon === null)){
