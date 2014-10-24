@@ -98,12 +98,13 @@ var findCoordinates= function() {
             break;
         case "maps.yandex.ru":
             console.log("yandex");
-            var link = window.location.href,
-                regexp = /&ll=(\d+.\d+)(?:%2C|\s+)(\d+.\d+)(?:&spn=\d+.\d+)(?:%2C|\s+)(?:\d+.\d+&)z=(\d+)/g;
-                lonlatz = regexp.exec(link);
+            var link = window.location.href;
+            var lonlatz = link.match(/ll=([\d.-]+)(%2C|,)([\d.-]+).*z=([\d.]+)/);
+            if (!lonlatz)
+                break;
             lon = parseFloat(lonlatz[1], 10);
-            lat = parseFloat(lonlatz[2], 10);
-            zoom = parseFloat(lonlatz[3], 10);
+            lat = parseFloat(lonlatz[3], 10);
+            zoom = parseFloat(lonlatz[4], 10);
             break;
     }
     if(!(lat === null) && !(lon === null)){
