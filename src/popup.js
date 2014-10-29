@@ -14,7 +14,6 @@ function generate_links() {
                     zoom = zoom_default;
                 var link_wikimapia = '<a href="http://wikimapia.org/#lat=LAT&lon=LON&z=ZOOM&l=0&m=b" target="_blank">Wikimapia</a>';
                 var link_osm = '<a href="http://www.openstreetmap.org/?lon=LON&lat=LAT&zoom=ZOOM&mlat=LAT&mlon=LON" target="_blank">OpenStreetMap</a>';
-                var link_bugs = '<a href="http://www.openstreetbugs.org/?lon=LON&lat=LAT&zoom=ZOOM&mlat=LAT&mlon=LON" target="_blank">OpenStreetBugs</a>';
                 var link_google ='<a href="http://maps.google.com/?ie=UTF8&ll=LAT,LON&z=ZOOM" target="_blank">Google Maps</a>';
                 var link_mapquest = '<a href="http://open.mapquest.com/?center=LAT,LON&zoom=ZOOM" target="_blank">MapQuest Open</a>';
                 var link_yandex = '<a href="http://maps.yandex.ru/?ll=LON%2CLAT&z=ZOOM" target="_blank">Yandex Maps</a>';
@@ -25,9 +24,6 @@ function generate_links() {
                 link_osm = link_osm.replace(/LAT/g,coordinates.lat);
                 link_osm = link_osm.replace(/LON/g,coordinates.lon);
                 link_osm = link_osm.replace('ZOOM',zoom);
-                link_bugs = link_bugs.replace(/LAT/g,coordinates.lat);
-                link_bugs = link_bugs.replace(/LON/g,coordinates.lon);
-                link_bugs = link_bugs.replace('ZOOM',zoom);
                 link_google = link_google.replace(/LAT/g,coordinates.lat);
                 link_google = link_google.replace(/LON/g,coordinates.lon);
                 link_google = link_google.replace('ZOOM',zoom);
@@ -45,7 +41,6 @@ function generate_links() {
                     link_google + "<br/>" + 
                     link_mapquest + "<br/>" + 
                     link_osm + "<br/>" + 
-                    link_bugs + "<br/>" + 
                     link_wikimapia + "<br/>" + 
                     link_yandex;
             }

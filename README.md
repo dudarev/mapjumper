@@ -18,7 +18,6 @@ As of version 0.5.0 jumps
   * Google Maps
   * MapQuest Open
   * OpenStreetMap
-  * OpenStreetBugs
   * Wikimapia
   * Yandex Maps
 
