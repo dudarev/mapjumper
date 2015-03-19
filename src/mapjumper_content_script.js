@@ -29,6 +29,8 @@ var findCoordinates= function() {
         hostname = 'bing';
     if (hostname.match(/maps.yandex/))
         hostname = 'maps.yandex.ru';
+    if (hostname.match(/2gis/))
+        hostname = '2gis';
     switch(hostname){
         case "foursquare":
             console.log("foursquare");
@@ -106,6 +108,16 @@ var findCoordinates= function() {
             var lat = parseFloat(lonlat[2], 10);
             var zoom = parseInt(link.match(/z=(\d+)/)[1], 10);
             break;
+        case "2gis":
+            console.log("2gis");
+            var pathname = window.location.pathname;
+            if (pathname){
+                latlonz = pathname.match(/([\d.-]+)%2C([\d.-]+)\/zoom\/([\d.-]+)/);
+                lon = parseFloat(latlonz[1]);
+                lat = parseFloat(latlonz[2]);
+                zoom = parseFloat(latlonz[3]);
+            }
+        break;
     }
     if(!(lat === null) && !(lon === null)){
         return {"lat":lat, "lon":lon, "zoom":zoom};

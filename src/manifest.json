@@ -25,7 +25,9 @@
             "*://maps.yandex.ru/*",
             "*://maps.yandex.ua/*",
             "*://maps.yandex.com/*",
-            "*://harita.yandex.com/*"
+            "*://harita.yandex.com/*",
+            "*://2gis.ua/*",
+            "*://2gis.ru/*"
         ],
         "js": [
             "mapjumper_content_script.js"
