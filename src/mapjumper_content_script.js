@@ -31,6 +31,8 @@ var findCoordinates= function() {
         hostname = 'maps.yandex.ru';
     if (hostname.match(/2gis/))
         hostname = '2gis';
+    if (hostname.match(/waze.com/))
+        hostname = 'waze';
     switch(hostname){
         case "foursquare":
             console.log("foursquare");
@@ -116,6 +118,17 @@ var findCoordinates= function() {
                 lon = parseFloat(latlonz[1]);
                 lat = parseFloat(latlonz[2]);
                 zoom = parseFloat(latlonz[3]);
+            }
+        break;
+        case "waze":
+            console.log("waze");
+            var link = document.getElementsByClassName('leaflet-control-permalink leaflet-control')[0].getElementsByTagName('a')[0];
+            var pathname = link.toString();
+            if (pathname){
+                latlonz = pathname.match(/zoom=([\d]+)&lat=([\d.-]+)&lon=([\d.-]+)/);
+                zoom = parseFloat(latlonz[1]);
+                lat = parseFloat(latlonz[2]);
+                lon = parseFloat(latlonz[3]);
             }
         break;
     }
