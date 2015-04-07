@@ -29,7 +29,8 @@
             "*://2gis.ua/*",
             "*://2gis.ru/*",
             "*://2gis.com/*",
-            "*://2gis.com.cy/*"
+            "*://2gis.com.cy/*",
+            "*://mapy.cz/*"
         ],
         "js": [
             "mapjumper_content_script.js"

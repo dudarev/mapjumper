@@ -31,6 +31,8 @@ var findCoordinates= function() {
         hostname = 'maps.yandex.ru';
     if (hostname.match(/2gis/))
         hostname = '2gis';
+    if (hostname.match(/mapy.cz/))
+        hostname = 'mapycz';
     switch(hostname){
         case "foursquare":
             console.log("foursquare");
@@ -118,6 +120,20 @@ var findCoordinates= function() {
                 zoom = parseFloat(latlonz[3]);
             }
         break;
+        case "mapycz":
+            console.log("mapycz");
+            var search = window.location.search;
+            if (search){
+                console.log(search);
+                var lonMatch = search.match(/x=([\d.-]+)/);
+                var latMatch = search.match(/y=([\d.-]+)/);
+                var zoomMatch = search.match(/z=([\d]+)/);
+                if (!(latMatch && lonMatch && zoomMatch)) break;
+                lat = parseFloat(latMatch[1]);
+                lon = parseFloat(lonMatch[1]);
+                zoom = parseFloat(zoomMatch[1]);
+            }
+            break;
     }
     if(!(lat === null) && !(lon === null)){
         return {"lat":lat, "lon":lon, "zoom":zoom};
