@@ -16,7 +16,14 @@ a:hover {
     /* text-align: right; */
 }
 
+.hack {
+	display: inline-block;
+	margin-right: -1em;
+}
+
 .alternatives {
 	opacity: 0.5;
+	display: inline-block;
+	margin-left: 1em;
 }
 
