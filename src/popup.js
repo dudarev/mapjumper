@@ -28,6 +28,15 @@ function generate_links() {
 						}, []);
 
 						document.getElementById('container').innerHTML = links.join('<br/>');
+
+						// hack to force resize popup when chrome doesn't resize it on content change
+						var body = document.getElementsByTagName("BODY")[0];
+						var html = document.documentElement;
+
+						[html, body].forEach(function(domElement) {
+							// assume it's 1 line per mapProvider + 2 lines for body margins
+							domElement.style.minHeight = (2 + lines.length) + 'em';
+						});
 					}
         });
     });
