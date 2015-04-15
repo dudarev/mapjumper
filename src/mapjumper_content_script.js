@@ -25,9 +25,13 @@ var mapProviders = [
 				lat: parseFloat(latLon[1]),
 				lon: parseFloat(latLon[2]),
 				zoom: parseInt(link_value.match(/'Z':(\d+)/)[1], 10)
-			}
+			};
 		},
-		generateUrlTemplate: 'http://www.bing.com/maps/?cp=LAT~LON&lvl=ZOOM'
+		urlTemplates: {
+			base: 'http://www.bing.com/maps/?cp=LAT~LON&lvl=ZOOM',
+			'Aerial': 'http://www.bing.com/maps/?cp=LAT~LON&lvl=ZOOM&sty=h',
+			'Bird\'s eye': 'http://www.bing.com/maps/?cp=LAT~LON&lvl=ZOOM&sty=b',
+		}
 	},
 	{
 		name: 'Google Maps', // maps.google domain
@@ -45,7 +49,9 @@ var mapProviders = [
 			};
 		},
 		coordinatesNotFound: "no coordinates detected, drag the map around, click again",
-		generateUrlTemplate: 'http://maps.google.com/?ie=UTF8&ll=LAT,LON&z=ZOOM'
+		urlTemplates: {
+			base: 'http://maps.google.com/?ie=UTF8&ll=LAT,LON&z=ZOOM'
+		}
 	},
 	{
 		name: 'Google Maps', // google.com/maps domain
@@ -59,7 +65,7 @@ var mapProviders = [
 						lat: parseFloat(latLonZoom[1]),
 						lon: parseFloat(latLonZoom[2]),
 						zoom: parseFloat(latLonZoom[3])
-					}
+					};
 				}
 			}
 			return null;
@@ -67,7 +73,9 @@ var mapProviders = [
 	},
 	{
 		name: 'MapQuest Maps',
-		generateUrlTemplate: 'http://open.mapquest.com/?center=LAT,LON&zoom=ZOOM'
+		urlTemplates: {
+			base: 'http://open.mapquest.com/?center=LAT,LON&zoom=ZOOM'
+		}
 	},
 	{
 		name: 'OpenStreetMap',
@@ -85,7 +93,9 @@ var mapProviders = [
 				};
 			}
 		},
-		generateUrlTemplate: 'http://www.openstreetmap.org/?lon=LON&lat=LAT&zoom=ZOOM&mlat=LAT&mlon=LON'
+		urlTemplates: {
+			base: 'http://www.openstreetmap.org/?lon=LON&lat=LAT&zoom=ZOOM&mlat=LAT&mlon=LON'
+		}
 	},
 	{
 		name: 'Foursquare',
@@ -126,7 +136,9 @@ var mapProviders = [
 				};
 			}
 		},
-		generateUrlTemplate: 'http://wikimapia.org/#lat=LAT&lon=LON&z=ZOOM&l=0&m=b'
+		urlTemplates: {
+			base: 'http://wikimapia.org/#lat=LAT&lon=LON&z=ZOOM&l=0&m=b'
+		}
 	},
 	{
 		name: 'Yandex Maps',
@@ -140,9 +152,11 @@ var mapProviders = [
 				lon: parseFloat(lonLat[1], 10),
 				lat: parseFloat(lonLat[2], 10),
 				zoom: parseInt(link.match(/z=(\d+)/)[1], 10)
-			}
+			};
 		},
-		generateUrlTemplate: 'http://maps.yandex.ru/?ll=LON%2CLAT&z=ZOOM'
+		urlTemplates: {
+			base: 'http://maps.yandex.ru/?ll=LON%2CLAT&z=ZOOM'
+		}
 	},
 	{
 		name: '2gis',
@@ -155,7 +169,7 @@ var mapProviders = [
 					lon: parseFloat(latlonz[1]),
 					lat: parseFloat(latlonz[2]),
 					zoom: parseFloat(latlonz[3])
-				}
+				};
 			} else {
 				return null;
 			}
@@ -176,10 +190,16 @@ var mapProviders = [
 					lat: parseFloat(latMatch[1]),
 					lon: parseFloat(lonMatch[1]),
 					zoom: parseFloat(zoomMatch[1])
-				}
+				};
 			}
 		},
-		generateUrlTemplate: 'http://mapy.cz?x=LON&y=LAT&z=ZOOM'
+		urlTemplates: {
+			base: 'http://mapy.cz?x=LON&y=LAT&z=ZOOM',
+			'Tourist': 'http://mapy.cz/turisticka?x=LON&y=LAT&z=ZOOM',
+			'Summer': 'http://mapy.cz/letni?x=LON&y=LAT&z=ZOOM',
+			'Winter': 'http://mapy.cz/zimni?x=LON&y=LAT&z=ZOOM',
+			'Aerial': 'http://mapy.cz/letecka?x=LON&y=LAT&z=ZOOM'
+		}
 	}
 ];
 
@@ -191,23 +211,23 @@ var findCoordinates = function() {
 		return provider.hostnameMatch && window.location.hostname.match(provider.hostnameMatch);
 	});
 
-	if (matchingMapProviders.length == 0) {
+	if (matchingMapProviders.length === 0) {
 		return { error: 'Could not find provider for url ' + window.location.hostname + ', please file an issue at https://github.com/dudarev/mapjumper/issues' };
 	}
-	console.log('matching map providers', matchingMapProviders);
+	// console.log('matching map providers', matchingMapProviders);
 
 	var mapProvider = matchingMapProviders[0];
 	var latLonZoom = mapProvider.extract && mapProvider.extract(document) || null;
 
-	console.log('latLonZoom', latLonZoom);
+	// console.log('latLonZoom', latLonZoom);
 
-	if (latLonZoom == null || latLonZoom.lat == null || latLonZoom.lon == null) {
+	if (latLonZoom === null || latLonZoom.lat === null || latLonZoom.lon === null) {
 		var message = mapProvider.coordinatesNotFound || 'No place detected.';
-		console.log('no coordinates found:', message);
+		console.log('Mapjumper: map provider ' + mapProvider.name + ': no coordinates found:', message);
 		return { error: message };
 	}
 
-	if (latLonZoom.zoom == null)
+	if (latLonZoom.zoom === null)
 		latLonZoom.zoom = DEFAULT_ZOOM; // default zoom
 
 	return {
