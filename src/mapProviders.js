@@ -97,6 +97,32 @@ window.mapJumperMapProviders = [
         }
     },
     {
+        name: 'Mapy.cz',
+        hostnameMatch: /mapy.cz/,
+        extract: function(document) {
+            var search = window.location.search;
+            if (search) {
+                var lonMatch = search.match(/x=([\d.-]+)/);
+                var latMatch = search.match(/y=([\d.-]+)/);
+                var zoomMatch = search.match(/z=([\d]+)/);
+                if (!(latMatch && lonMatch && zoomMatch))
+                    return null;
+                return {
+                    lat: parseFloat(latMatch[1]),
+                    lon: parseFloat(lonMatch[1]),
+                    zoom: parseFloat(zoomMatch[1])
+                };
+            }
+        },
+        urlTemplates: {
+            base: 'http://mapy.cz?x=LON&y=LAT&z=ZOOM',
+            'Aerial': 'http://mapy.cz/letecka?x=LON&y=LAT&z=ZOOM',
+            'Summer': 'http://mapy.cz/letni?x=LON&y=LAT&z=ZOOM',
+            'Tourist': 'http://mapy.cz/turisticka?x=LON&y=LAT&z=ZOOM',
+            'Winter': 'http://mapy.cz/zimni?x=LON&y=LAT&z=ZOOM'
+        }
+    },
+    {
         name: 'OpenStreetMap',
         hostnameMatch: /openstreetmap.org/,
         extract: function(document) {
@@ -115,10 +141,10 @@ window.mapJumperMapProviders = [
         urlTemplates: {
             base: 'http://www.openstreetmap.org/?lon=LON&lat=LAT&zoom=ZOOM&mlat=LAT&mlon=LON',
             'Cyclo': 'http://www.openstreetmap.org/?lon=LON&lat=LAT&zoom=ZOOM&mlat=LAT&mlon=LON&layers=C',
-            'Transport': 'http://www.openstreetmap.org/?lon=LON&lat=LAT&zoom=ZOOM&mlat=LAT&mlon=LON&layers=T',
+            'Humanitarian': 'http://www.openstreetmap.org/?lon=LON&lat=LAT&zoom=ZOOM&mlat=LAT&mlon=LON&layers=H',
+            'Transport': 'http://www.openstreetmap.org/?lon=LON&lat=LAT&zoom=ZOOM&mlat=LAT&mlon=LON&layers=T'
             // duplicate of mapquest
             // 'MapQuest Open': 'http://www.openstreetmap.org/?lon=LON&lat=LAT&zoom=ZOOM&mlat=LAT&mlon=LON&layers=Q',
-            'Humanitarian': 'http://www.openstreetmap.org/?lon=LON&lat=LAT&zoom=ZOOM&mlat=LAT&mlon=LON&layers=H',
         }
     },
     {
@@ -197,32 +223,6 @@ window.mapJumperMapProviders = [
             } else {
                 return null;
             }
-        }
-    },
-    {
-        name: 'Mapy.cz',
-        hostnameMatch: /mapy.cz/,
-        extract: function(document) {
-            var search = window.location.search;
-            if (search) {
-                var lonMatch = search.match(/x=([\d.-]+)/);
-                var latMatch = search.match(/y=([\d.-]+)/);
-                var zoomMatch = search.match(/z=([\d]+)/);
-                if (!(latMatch && lonMatch && zoomMatch))
-                    return null;
-                return {
-                    lat: parseFloat(latMatch[1]),
-                    lon: parseFloat(lonMatch[1]),
-                    zoom: parseFloat(zoomMatch[1])
-                };
-            }
-        },
-        urlTemplates: {
-            base: 'http://mapy.cz?x=LON&y=LAT&z=ZOOM',
-            'Tourist': 'http://mapy.cz/turisticka?x=LON&y=LAT&z=ZOOM',
-            'Summer': 'http://mapy.cz/letni?x=LON&y=LAT&z=ZOOM',
-            'Winter': 'http://mapy.cz/zimni?x=LON&y=LAT&z=ZOOM',
-            'Aerial': 'http://mapy.cz/letecka?x=LON&y=LAT&z=ZOOM'
         }
     }
 ];

@@ -10,7 +10,7 @@ function generate_links() {
                 var lines = mapProviders.reduce(function(lines, mapProvider) {
                     if (mapProvider.urlTemplates && mapProvider.urlTemplates.base) {
 
-                        console.log(mapProvider.name, mapProvider.urlTemplates);
+                        // console.log(mapProvider.name, mapProvider.urlTemplates);
 
                         var altMaps = [];
                         for (var key in mapProvider.urlTemplates) {
@@ -26,7 +26,7 @@ function generate_links() {
                         var str = link(mapProvider.name, urlFromTemplate(mapProvider.urlTemplates.base, result.latLonZoom));
 
                         if (altMaps.length) {
-                            str += ' <span class="hack"></span><span class="alternatives">(' + altMaps.join(', ') + ')</span>';
+                            str = '<span class="hack"></span><span class="alternatives">' + altMaps.join(', ') + '</span> | ' + str;
                         }
 
                         lines.push('<div class="mapProvider">' + str + '</div>');
