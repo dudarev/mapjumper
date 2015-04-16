@@ -2,6 +2,8 @@
 // provider must have hostnameMatch and extract function to work as extractor
 // provider must have generateUrlTemplate and name to act as target
 
+var zoom_default = 16;
+
 window.mapJumperMapProviders = [
     {
         name: 'Bing Maps',
@@ -165,7 +167,8 @@ window.mapJumperMapProviders = [
             }
             return {
                 lat: lat,
-                lon: lon
+                lon: lon,
+                zoom: zoom_default
             };
         },
         coordinatesNotFound: "browse to a place page",
