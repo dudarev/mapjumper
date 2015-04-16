@@ -11,35 +11,36 @@ var DEFAULT_ZOOM = 16;
 // Search latitude and longitude in meta
 // Return null if none is found.
 var findCoordinates = function() {
-	var mapProviders = window.mapJumperMapProviders;
+    var mapProviders = window.mapJumperMapProviders;
 
-	var matchingMapProviders = mapProviders.filter(function(provider){
-		return provider.hostnameMatch && window.location.hostname.match(provider.hostnameMatch);
-	});
+    var matchingMapProviders = mapProviders.filter(function(provider){
+        return provider.hostnameMatch && window.location.hostname.match(provider.hostnameMatch);
+    });
 
-	if (matchingMapProviders.length === 0) {
-		return { error: 'Could not find provider for url ' + window.location.hostname + ', please file an issue at https://github.com/dudarev/mapjumper/issues' };
-	}
-	// console.log('matching map providers', matchingMapProviders);
+    if (matchingMapProviders.length === 0) {
+        return { error: 'Could not find provider for url ' + window.location.hostname + ', please file an issue at https://github.com/dudarev/mapjumper/issues' };
+    }
 
-	var mapProvider = matchingMapProviders[0];
-	var latLonZoom = mapProvider.extract && mapProvider.extract(document) || null;
+    console.log('matching map providers', matchingMapProviders);
 
-	// console.log('latLonZoom', latLonZoom);
+    var mapProvider = matchingMapProviders[0];
+    var latLonZoom = mapProvider.extract && mapProvider.extract(document) || null;
 
-	if (latLonZoom === null || latLonZoom.lat === null || latLonZoom.lon === null) {
-		var message = mapProvider.coordinatesNotFound || 'No place detected.';
-		console.log('Mapjumper: map provider ' + mapProvider.name + ': no coordinates found:', message);
-		return { error: message };
-	}
+    console.log('latLonZoom', latLonZoom);
 
-	if (latLonZoom.zoom === null)
-		latLonZoom.zoom = DEFAULT_ZOOM; // default zoom
+    if (latLonZoom.lat === null || latLonZoom.lon === null) {
+        var message = mapProvider.coordinatesNotFound || 'No place detected.';
+        console.log('Mapjumper: map provider ' + mapProvider.name + ': no coordinates found:', message);
+        return { error: message };
+    }
 
-	return {
-		latLonZoom: latLonZoom,
-		mapProviders: mapProviders
-	};
+    if (latLonZoom.zoom === null)
+        latLonZoom.zoom = DEFAULT_ZOOM; // default zoom
+
+    return {
+        latLonZoom: latLonZoom,
+        mapProviders: mapProviders
+    };
 };
 
 function initialize(tabId) {

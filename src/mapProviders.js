@@ -2,8 +2,6 @@
 // provider must have hostnameMatch and extract function to work as extractor
 // provider must have generateUrlTemplate and name to act as target
 
-var zoom_default = 16;
-
 window.mapJumperMapProviders = [
     {
         name: 'Bing Maps',
@@ -153,7 +151,7 @@ window.mapJumperMapProviders = [
         name: 'Foursquare',
         hostnameMatch: /foursquare/,
         extract: function(document) {
-            var lat, lon;
+            var lat = null, lon = null, zoom = null;
             for (var i = 0; i < document.head.childNodes.length; ++i) {
                 var child = document.head.childNodes[i];
                 if(child.nodeName){
@@ -168,7 +166,7 @@ window.mapJumperMapProviders = [
             return {
                 lat: lat,
                 lon: lon,
-                zoom: zoom_default
+                zoom: zoom 
             };
         },
         coordinatesNotFound: "browse to a place page",
