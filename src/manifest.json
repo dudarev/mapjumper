@@ -14,6 +14,7 @@
             "*://www.google.co.uk/maps/*",
             "*://www.google.ru/maps/*",
             "*://www.google.com.ua/maps/*",
+            "*://www.google.cz/maps/*",
             "*://maps.google.com/*",
             "*://maps.google.ru/*",
             "*://maps.google.com.ua/*",
@@ -29,9 +30,11 @@
             "*://2gis.ua/*",
             "*://2gis.ru/*",
             "*://2gis.com/*",
-            "*://2gis.com.cy/*"
+            "*://2gis.com.cy/*",
+            "*://mapy.cz/*"
         ],
         "js": [
+            "mapProviders.js",
             "mapjumper_content_script.js"
         ]
     }],
