@@ -124,7 +124,7 @@ window.mapJumperMapProviders = [
     },
     {
         name: 'OpenStreetMap',
-        hostnameMatch: /openstreetmap.org/,
+        hostnameMatch: /openstreetmap.org|osm.org/,
         extract: function(document) {
             var hash = window.location.hash;
             if(hash){

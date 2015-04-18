@@ -21,6 +21,7 @@
             "*://maps.google.co.uk/*",
             "*://openstreetmap.org/*",
             "*://www.openstreetmap.org/*",
+            "*://osm.org/*",
             "*://www.bing.com/maps/*",
             "http://wikimapia.org/*",
             "*://maps.yandex.ru/*",
