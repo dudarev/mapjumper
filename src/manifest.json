@@ -31,7 +31,8 @@
             "*://2gis.ru/*",
             "*://2gis.com/*",
             "*://2gis.com.cy/*",
-            "*://mapy.cz/*"
+            "*://mapy.cz/*",
+            "*://www.waze.com/*"
         ],
         "js": [
             "mapProviders.js",

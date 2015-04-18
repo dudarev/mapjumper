@@ -37,3 +37,8 @@ http://maps.yandex.ua/?text=%D0%A3%D0%BA%D1%80%D0%B0%D0%B8%D0%BD%D0%B0%2C%20%D0%
 # 2GIS
 
 http://2gis.ua/dnepropetrovsk/center/35.010166%2C48.494881/zoom/13
+
+# Waze
+
+https://www.waze.com/livemap?lon=36.77562&lat=46.75151&zoom=15
+https://www.waze.com/livemap?zoom=15&lon=36.77562&lat=46.75151
