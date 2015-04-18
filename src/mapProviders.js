@@ -172,6 +172,39 @@ window.mapJumperMapProviders = [
         coordinatesNotFound: "browse to a place page",
     },
     {
+        name: 'Waze',
+        hostnameMatch: /waze.com/,
+        extract: function(document) {
+            try {
+                var link = document.getElementsByClassName('leaflet-control-permalink leaflet-control')[0].getElementsByTagName('a')[0];
+            } catch(err) {
+                return { lon: null, lat: null, zoom: null };
+            }
+            console.log(link);
+            var pathname = link.toString();
+            console.log(pathname);
+            if (pathname){
+                // parsing each parameter separatelly since Waze changes their order in URL in various places
+                var zoom = pathname.match(/zoom=([\d]+)/);
+                if (zoom !== null) zoom = parseFloat(zoom[1]);
+                var lat = pathname.match(/lat=([\d.-]+)/);
+                if (lat !== null) lat = parseFloat(lat[1]);
+                var lon = pathname.match(/lon=([\d.-]+)/);
+                if (lon !== null) lon = parseFloat(lon[1]);
+                return {
+                    lon: lon,
+                    lat: lat,
+                    zoom: zoom
+                };
+            }
+        },
+        urlTemplates: {
+            base: 'https://www.waze.com/livemap?lon=LON&lat=LAT&zoom=ZOOM',
+            'Edit': 'https://www.waze.com/editor/?lon=LON&lat=LAT&zoom=ZOOM'
+        },
+        coordinatesNotFound: "browse to live map",
+    },
+    {
         name: 'Wikimapia',
         hostnameMatch: /wikimapia/,
         extract: function(document) {
