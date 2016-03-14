@@ -1,16 +1,14 @@
 function generate_links() {
     chrome.tabs.getSelected(null, function(tab) {
         chrome.tabs.sendRequest(tab.id, {}, function(result) {
-            // console.log(result);
             if (result.error) {
                 document.getElementById('container').innerHTML = result.error;
             } else {
-                var mapProviders = window.mapJumperMapProviders;
+                var mapProviders = result.mapProviders;
 
                 var lines = mapProviders.reduce(function(lines, mapProvider) {
                     if (mapProvider.urlTemplates && mapProvider.urlTemplates.base) {
 
-                        // console.log(mapProvider.name, mapProvider.urlTemplates);
 
                         var altMaps = [];
                         for (var key in mapProvider.urlTemplates) {

@@ -1,29 +1,34 @@
+var DEFAULT_ZOOM = 16;
+
 // The background page is asking us to find an address on the page.
 if (window == top) {
     chrome.extension.onRequest.addListener(
         function(request, sender, sendResponse) {
-        sendResponse(findCoordinates());
+        chrome.storage.sync.get('mapProvidersState', function(settings) {
+            sendResponse(findCoordinates(settings.mapProvidersState));
+        });
     });
 }
 
-var DEFAULT_ZOOM = 16;
-
 // Search latitude and longitude in meta
 // Return null if none is found.
-var findCoordinates = function() {
-    var mapProviders = window.mapJumperMapProviders;
+var findCoordinates = function(mapProvidersState) {
 
-    var matchingMapProviders = mapProviders.filter(function(provider){
+    // map providers enabled in options
+    var enabledMapProviders = window.mapJumperMapProviders.filter(function(provider){
+        return mapProvidersState[provider.name];
+    });
+
+    // map provider for the current page
+    var pageMapProvider = window.mapJumperMapProviders.filter(function(provider){
         return provider.hostnameMatch && window.location.hostname.match(provider.hostnameMatch);
     });
 
-    if (matchingMapProviders.length === 0) {
+    if (pageMapProvider.length === 0) {
         return { error: 'Could not find provider for url ' + window.location.hostname + ', please file an issue at https://github.com/dudarev/mapjumper/issues' };
     }
 
-    console.log('matching map providers', matchingMapProviders);
-
-    var mapProvider = matchingMapProviders[0];
+    var mapProvider = pageMapProvider[0];
     var latLonZoom = mapProvider.extract && mapProvider.extract(document) || null;
 
     console.log('latLonZoom', latLonZoom);
@@ -39,7 +44,7 @@ var findCoordinates = function() {
 
     return {
         latLonZoom: latLonZoom,
-        mapProviders: mapProviders
+        mapProviders: enabledMapProviders
     };
 };
 

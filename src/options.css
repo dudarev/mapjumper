@@ -5,10 +5,10 @@ body .content {
     padding: 20px 0 50px 150px;
 }
 
-body .content #save {
-    margin-top: 30px;
+div.provider {
+    margin-bottom: 0.5em;
 }
 
-#status {
-    margin-top: 1em;
+span.provider_name {
+    margin-left: 1em;
 }

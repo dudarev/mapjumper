@@ -7,13 +7,6 @@ function save_options() {
     }
     chrome.storage.sync.set({
         mapProvidersState: mapProvidersState
-    }, function() {
-        // Update status to let user know options were saved.
-        var status = document.getElementById('status');
-        status.textContent = 'Options saved!';
-        setTimeout(function() {
-            status.textContent = '';
-        }, 1750);
     });
 }
 
@@ -26,11 +19,16 @@ function restore_options() {
             if (mapProvider.urlTemplates && mapProvider.urlTemplates.base) {
                 var name = mapProvider.name;
                 var checked = settings.mapProvidersState[name] ? 'checked' : '';
-                lines.push('<input ' + checked + ' type="checkbox" name="provider" value="' + name + '">' + name + '<br/>');
+                lines.push('<div class="provider"><input ' + checked + ' type="checkbox" name="provider" value="' + name + '"><span class="provider_name">' + name + '</span></div>');
             }
             return lines;
         }, []);
         document.getElementById('providers').innerHTML = lines.join('');
+        // save options on checkbox click
+        var mapProvidersInput = document.getElementsByTagName("input");
+        for (var i = 0; i < mapProvidersInput.length; i++) {
+            mapProvidersInput[i].addEventListener('click', save_options, false);
+        }
     });
 }
 
