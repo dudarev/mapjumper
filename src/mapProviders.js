@@ -226,7 +226,7 @@ window.mapJumperMapProviders = [
     },
     {
         name: 'Yandex Maps',
-        hostnameMatch: /maps.yandex/,
+        hostnameMatch: /yandex/,
         extract: function(document) {
             var link = window.location.href;
             var lonLat = link.match(/ll=([\d.-]+)(?:%2C|,)([\d.-]+)/);
@@ -239,16 +239,16 @@ window.mapJumperMapProviders = [
             };
         },
         urlTemplates: {
-            base: 'http://maps.yandex.ru/?ll=LON%2CLAT&z=ZOOM'
+            base: 'https://maps.yandex.ru/?ll=LON%2CLAT&z=ZOOM'
         }
     },
     {
         name: '2gis',
         hostnameMatch: /2gis/,
         extract: function(document) {
-            var pathname = window.location.pathname;
-            if (pathname) {
-                var latlonz = pathname.match(/([\d.-]+)%2C([\d.-]+)\/zoom\/([\d.-]+)/);
+            var search = window.location.search;
+            if (search) {
+                var latlonz = search.match(/([\d.-]+)%2C([\d.-]+)%2Fzoom%2F([\d.-]+)/);
                 return {
                     lon: parseFloat(latlonz[1]),
                     lat: parseFloat(latlonz[2]),
