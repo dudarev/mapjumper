@@ -48,7 +48,7 @@ window.mapJumperMapProviders = [
         extract: function(document) {
             var pathname = window.location.pathname;
             if (pathname) {
-                var latLonZoom = pathname.match(/\/@([\d.-]+),([\d.-]+),([\d]+)z/);
+                var latLonZoom = pathname.match(/\/@([\d.-]+),([\d.-]+),([\d.]+)z/);
                 if (latLonZoom) {
                     return {
                         lat: parseFloat(latLonZoom[1]),

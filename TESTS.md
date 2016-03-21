@@ -10,7 +10,9 @@ http://www.openstreetmap.org/?lon=37.616436&lat=55.757144&zoom=16&mlat=55.757144
 
 You may have to do it from Incognito mode if new style Google Maps are enabled for you.
 
-https://maps.google.com/?ll=47.502359,33.903809&spn=4.319753,10.107422&t=m&z=7
+https://www.google.com/maps/@47.502359,33.903809,7z
+
+Zoom out to have non-integer zoom, make sure that it still works.
 
 # Foursquare
 
