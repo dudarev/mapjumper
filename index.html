@@ -1,122 +1,114 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset='utf-8'>
 
-  <title>dudarev/mapjumper @ GitHub</title>
+  <head>
+    <meta charset='utf-8'>
+    <title>Mapjumper - Chrome extension to jump to different online maps</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="social-likes_flat.css">
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="social-likes.min.js"></script>
+  </head>
 
-  <style type="text/css">
-    body {
-      margin-top: 1.0em;
-      background-color: #ffffff;
-      font-family: "Helvetica,Arial,FreeSans";
-      color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-    h1 { font-size: 3.8em; color: #000000; margin-bottom: 3px; }
-    h1 .small { font-size: 0.4em; }
-    h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #000000; }
-    h3 { text-align: center; color: #000000; }
-    a { color: #000000; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-  </style>
-  <script type="text/javascript">
+  <body>
+    <div class="row medium-8 large-7 columns">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-23573233-1']);
-  _gaq.push(['_setDomainName', 'none']);
-  _gaq.push(['_setAllowLinker', true]);
-  _gaq.push(['_trackPageview']);
+      <h1>Mapjumper</h1>
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
+      <h3 class="subheader">Chrome extension to jump from one map service to another</h3>
 
-</head>
+      <p>
+      Install directly from <a href="https://chrome.google.com/webstore/detail/idadajmpblcbihmilgecfdmjhomcmicd">Chrome Web Store</a>
+      or use instructions below to install from 
+      <a href="https://github.com/dudarev/mapjumper">source code on Github</a>.
+      </p>
 
-<body>
-  <a href="http://github.com/dudarev/mapjumper"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
-  <div id="container">
+      <h2>How to use</h2>
 
-    <div class="download">
-      <a href="http://github.com/dudarev/mapjumper/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/dudarev/mapjumper/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+      <iframe title="YouTube video player" width="480" height="350" src="http://www.youtube.com/embed/fN2_eT0cEl0" frameborder="0" allowfullscreen></iframe>
+
+
+      <h2>Download</h2>
+
+      <p>Clone the project by running:
+      <pre>$ git clone git://github.com/dudarev/mapjumper</pre>
+      </p>
+
+      <p>
+      Use <code>dev</code> branch for the latest features:
+      <pre>$ git checkout dev</pre>
+      </p>
+
+
+      <h2>Install</h2>
+
+      <p>
+      In Chrome navigate to
+      <pre>
+      Tools >
+      Extensions > 
+      Developer mode > 
+      Load unpacked extension
+      </pre>
+      Select <code>mapjumper/src</code> directory.
+      </p>
+
+      <h2>Share</h2>
+
+      <div class="social-container">
+        <div class="social-likes" data-url="http://dudarev.github.io/mapjumper/">
+          <div class="facebook" title="Share link on Facebook">Facebook</div>
+          <div class="twitter" data-via="dudarev" title="Share link on Twitter">Twitter</div>
+          <div class="plusone" title="Share link on Google+">Google+</div>
+        </div>
+      </div>
+
+      <h2>Feedback</h2>
+
+      <p>
+      To suggest features or submit bugs use <a href="https://github.com/dudarev/mapjumper/issues">Github issues</a>
+      or comment below.
+      </p>
+
+      <div id="comments">
+        <div id="disqus_thread"></div>
+
+        <script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'dudarevgithub'; // required: replace example with your forum shortname
+var disqus_url = 'http://dudarev.github.io/mapjumper/';
+
+// The following are highly recommended additional parameters. Remove the slashes in front to use.
+// var disqus_identifier = 'unique_dynamic_id_1234';
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        <!-- comments -->
+      </div>
+
+      <!-- container -->
     </div>
 
-    <h1><a href="http://github.com/dudarev/mapjumper">mapjumper</a>
-      <span class="small">by <a href="http://github.com/dudarev">dudarev</a></span></h1>
+    <script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-23573233-1']);
+_gaq.push(['_setDomainName', 'none']);
+_gaq.push(['_setAllowLinker', true]);
+_gaq.push(['_trackPageview']);
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+    </script>
 
-    <div class="description">
-      Chrome extension to jump from one map service to another.
-    </div>
-
-<g:plusone></g:plusone>
-
-<h2>Install directly from <a href="https://chrome.google.com/webstore/detail/idadajmpblcbihmilgecfdmjhomcmicd">Chrome Web Store</a></h2>
-
-<h2>How to use</h2>
-
-<iframe title="YouTube video player" width="480" height="350" src="http://www.youtube.com/embed/fN2_eT0cEl0" frameborder="0" allowfullscreen></iframe>
-
-<h2>Install dev version</h2>
-In Chrome:<br/>
-Tools > Extensions > Developer mode > Load unpacked extension > Browse to the src directory.</p>
-
-<h2>Download</h2>
-<p>
-  You can download this project in either
-  <a href="http://github.com/dudarev/mapjumper/zipball/master">zip</a> or
-  <a href="http://github.com/dudarev/mapjumper/tarball/master">tar</a> formats.
-</p>
-<p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-  by running:
-  <pre>$ git clone git://github.com/dudarev/mapjumper</pre>
-</p>
-
-<h2>Feedback</h2>
-
-<div id="comments">
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'dudarevgithub'; // required: replace example with your forum shortname
-
-    // The following are highly recommended additional parameters. Remove the slashes in front to use.
-    // var disqus_identifier = 'unique_dynamic_id_1234';
-    // var disqus_url = 'http://example.com/permalink-to-page.html';
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-</div>
-
-<div class="footer">
-  get the source code on GitHub : <a href="http://github.com/dudarev/mapjumper">dudarev/mapjumper</a>
-</div>
-
-  </div>
-
-<script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
-  
-</body>
+  </body>
 </html>
