@@ -2,7 +2,7 @@ body .content {
     margin: 30px auto;
     width: 715px;
     background-color: #f1f1f1;
-    padding: 20px 0 50px 150px;
+    padding: 20px 0 30px 150px;
 }
 
 div.provider {
@@ -11,4 +11,8 @@ div.provider {
 
 span.provider_name {
     margin-left: 1em;
+}
+
+div#issues {
+    margin-top: 2em;
 }
