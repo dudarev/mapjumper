@@ -1704,3 +1704,10 @@ body.is-reveal-open {
 .social-container {
     margin-bottom: 1em;
 }
+
+@media only screen and (max-width: 40em) { 
+    .howto-video {
+        width: 100%;
+        height: auto;
+    }
+} 
