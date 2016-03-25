@@ -15,9 +15,13 @@ if (window == top) {
 var findCoordinates = function(mapProvidersState) {
 
     // map providers enabled in options
-    var enabledMapProviders = window.mapJumperMapProviders.filter(function(provider){
-        return mapProvidersState[provider.name];
-    });
+    if (mapProvidersState) {
+        var enabledMapProviders = window.mapJumperMapProviders.filter(function(provider){
+            return mapProvidersState[provider.name];
+        });
+    } else {
+        var enabledMapProviders = window.mapJumperMapProviders;
+    }
 
     // map provider for the current page
     var pageMapProvider = window.mapJumperMapProviders.filter(function(provider){

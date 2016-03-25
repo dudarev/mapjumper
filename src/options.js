@@ -18,7 +18,11 @@ function restore_options() {
         var lines = mapProviders.reduce(function(lines, mapProvider) {
             if (mapProvider.urlTemplates && mapProvider.urlTemplates.base) {
                 var name = mapProvider.name;
-                var checked = settings.mapProvidersState[name] ? 'checked' : '';
+                if (settings.mapProvidersState) {
+                    var checked = settings.mapProvidersState[name] ? 'checked' : '';
+                } else {
+                    var checked = 'checked';
+                }
                 lines.push('<div class="provider"><input ' + checked + ' type="checkbox" name="provider" value="' + name + '"><span class="provider_name">' + name + '</span></div>');
             }
             return lines;
@@ -33,4 +37,3 @@ function restore_options() {
 }
 
 document.addEventListener('DOMContentLoaded', restore_options);
-document.getElementById('save').addEventListener('click', save_options);
