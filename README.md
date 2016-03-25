@@ -2,26 +2,29 @@
 
 Chrome extension to jump from one map to another.
 
-As of version 0.5.0 jumps
+As of version 0.6.0 one can jump
 
 **FROM**: 
 
   * Bing
-  * Foursquare
-  * Google Maps (old style for now)
+  * **Foursquare**
+  * Google Maps
+  * Mapy.cz
   * OpenStreetMap
+  * Waze
   * Wikimapia
+  * Yandex Maps
 
 **TO**: 
 
   * Bing Maps
   * Google Maps
-  * MapQuest Open
+  * MapQuest Maps
+  * Mapy.cz
   * OpenStreetMap
+  * Waze
   * Wikimapia
   * Yandex Maps
-
-More services and directions are planned.
 
 
 ## Installation
