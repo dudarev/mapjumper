@@ -6,6 +6,7 @@ As of version 0.6.0 one can jump
 
 **FROM**: 
 
+  * 2GIS
   * Bing
   * **Foursquare**
   * Google Maps
