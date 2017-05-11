@@ -11,6 +11,7 @@
         "matches": [
             "*://foursquare.com/*",
             "*://www.google.com/maps/*",
+            "*://www.google.com.hk/maps/*",
             "*://www.google.co.uk/maps/*",
             "*://www.google.ru/maps/*",
             "*://www.google.com.ua/maps/*",
