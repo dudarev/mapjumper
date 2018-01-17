@@ -16,7 +16,6 @@ function generate_links() {
                                 continue;
 
                             var url = urlFromTemplate(mapProvider.urlTemplates[key], result.latLonZoom);
-                            // console.log('provider: ' + mapProvider.name, key, mapProvider.urlTemplates[key], 'url:', url);
 
                             altMaps.push(link(key, url));
                         }

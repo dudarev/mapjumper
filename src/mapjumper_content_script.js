@@ -35,11 +35,8 @@ var findCoordinates = function(mapProvidersState) {
     var mapProvider = pageMapProvider[0];
     var latLonZoom = mapProvider.extract && mapProvider.extract(document) || null;
 
-    console.log('latLonZoom', latLonZoom);
-
     if (latLonZoom === null || latLonZoom.lat === null || latLonZoom.lon === null) {
         var message = mapProvider.coordinatesNotFound || 'No place detected.';
-        console.log('Mapjumper: map provider ' + mapProvider.name + ': no coordinates found:', message);
         return { error: message };
     }
 
